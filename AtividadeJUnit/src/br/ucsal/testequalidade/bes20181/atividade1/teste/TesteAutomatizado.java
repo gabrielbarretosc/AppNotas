@@ -1,7 +1,5 @@
 package br.ucsal.testequalidade.bes20181.atividade1.teste;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -14,17 +12,29 @@ class TesteAutomatizado {
 	RegistroNotaBC rg = new RegistroNotaBC();
 
 	@Test
-	void testeValidarPesoFalse() {
-
-		RegistroNotaBC rg = new RegistroNotaBC();
+	void testeValidarPesoFalseMaiorQue10() {
 
 		try {
 			rg.validarPeso(11);
 		} catch (PesoInvalidoException e) {
 			e.printStackTrace();
 		}
-			
-		Assert.assertEquals((Object)1,(Object)rg.auxValidarPeso);
+
+		Assert.assertEquals((Object) 1, (Object) rg.auxValidarPeso);
+	}
+
+	@Test
+	void testeValidarPesoFalseMenorQue1() {
+
+		RegistroNotaBC rg = new RegistroNotaBC();
+
+		try {
+			rg.validarPeso(0);
+		} catch (PesoInvalidoException e) {
+			e.printStackTrace();
+		}
+
+		Assert.assertEquals((Object) 1, (Object) rg.auxValidarPeso);
 	}
 
 	@Test
@@ -36,59 +46,57 @@ class TesteAutomatizado {
 		} catch (PesoInvalidoException e) {
 			e.printStackTrace();
 		}
-			
-		Assert.assertEquals((Object)0,(Object)rg.auxValidarPeso);
+
+		Assert.assertEquals((Object) 0, (Object) rg.auxValidarPeso);
 	}
-		
-		@Test
-		void testeValidarNotaFalseNegativo() {
-			try {
-				rg.validarNota(-1);
-			} catch (NotaInvalidaException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			Assert.assertEquals((Object)1,(Object)rg.auxValidarNota);
+
+	@Test
+	void testeValidarNotaFalseNegativa() {
+		try {
+			rg.validarNota(-1);
+		} catch (NotaInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-		@Test
-		void testeValidarNotaMaiorQue100() {
+		Assert.assertEquals((Object) 1, (Object) rg.auxValidarNota);
+	}
+
+	@Test
+	void testeValidarNotaFalseMaiorQue100() {
 		try {
 			rg.validarNota(101);
 		} catch (NotaInvalidaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		Assert.assertEquals((Object)1,(Object)rg.auxValidarNota);
+
+		Assert.assertEquals((Object) 1, (Object) rg.auxValidarNota);
 	}
-		
-		@Test
-		void testeValidarNotaTrue() {
-			try {
-				rg.validarNota(55);
-			} catch (NotaInvalidaException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Assert.assertEquals((Object)0,(Object)rg.auxValidarNota);
+
+	@Test
+	void testeValidarNotaTrue() {
+		try {
+			rg.validarNota(55);
+		} catch (NotaInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
+		Assert.assertEquals((Object) 0, (Object) rg.auxValidarNota);
+	}
+
 	@Test
 	void testeCalcularMedia() {
 		Integer atual = rg.calcularMedia(90, 80, 10, 5);
 		Integer esperado = 86;
-		Assert.assertEquals(atual, esperado);
+		Assert.assertEquals(esperado, atual);
 	}
 
 	@Test
 	void testeCalcularConceitoOtimo() {
 		String atual = rg.calcularConceito(76);
 		String esperado = "Ótimo";
-
-		Assert.assertEquals(atual, esperado);
+		Assert.assertEquals(esperado, atual);
 
 	}
 
@@ -96,21 +104,21 @@ class TesteAutomatizado {
 	void testeCalcularConceitoBom() {
 		String atual = rg.calcularConceito(55);
 		String esperado = "Bom";
-		Assert.assertEquals(atual, esperado);
+		Assert.assertEquals(esperado, atual);
 	}
 
 	@Test
 	void testeCalcularConceitoRegular() {
 		String atual = rg.calcularConceito(48);
 		String esperado = "Regular";
-		Assert.assertEquals(atual, esperado);
+		Assert.assertEquals(esperado, atual);
 	}
 
 	@Test
 	void testeCalcularConceitoInsuficiente() {
 		String atual = rg.calcularConceito(20);
 		String esperado = "Insuficiente";
-		Assert.assertEquals(atual, esperado);
+		Assert.assertEquals(esperado, atual);
 	}
 
 }
