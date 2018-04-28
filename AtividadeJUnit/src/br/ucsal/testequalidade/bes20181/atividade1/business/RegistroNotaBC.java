@@ -34,7 +34,8 @@ public class RegistroNotaBC {
 
 		String conceito = calcularConceito(media);
 
-		return conceito;
+		return "Peso 1: " + peso1 + "\nPeso2: " + peso2 + "\nNota1:" + nota1 + "\nNota2:" + nota2 + "\nMédia:" + media
+				+ "\nConceito:" + conceito;
 
 	}
 
@@ -57,7 +58,7 @@ public class RegistroNotaBC {
 	public Integer calcularMedia(Integer nota1, Integer nota2, Integer peso1, Integer peso2) {
 
 		return media = (((nota1 * peso1) + (nota2 * peso2)) / (peso1 + peso2));
-		
+
 	}
 
 	public String calcularConceito(Integer media) {

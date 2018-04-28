@@ -6,24 +6,18 @@ import br.ucsal.testequalidade.bes20181.atividade1.exceptions.PesoInvalidoExcept
 public class Atividade1Entry {
 
 	public static void main(String[] args) {
-		
+
 		RegistroNotaTui registroNotaTui = new RegistroNotaTui();
-		
+
 		try {
-			registroNotaTui.registrarPesos();
+			registroNotaTui.menu();
 		} catch (PesoInvalidoException e) {
-			
 			System.out.println("Peso invalido");
 			e.printStackTrace();
-		}
-		
-		try {
-			registroNotaTui.registarNotas();
 		} catch (NotaInvalidaException e) {
 			System.out.println("Nota invalida");
 			e.printStackTrace();
 		}
-		
+
 	}
-	
 }
