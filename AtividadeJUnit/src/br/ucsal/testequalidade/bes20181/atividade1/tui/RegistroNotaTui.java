@@ -16,6 +16,7 @@ public class RegistroNotaTui {
 	private Integer nota2;
 
 	public void menu() throws PesoInvalidoException, NotaInvalidaException {
+
 		int opcao = 0;
 		do {
 			System.out.println("\nSistema de cadatro de notas com seus pesos");
@@ -40,7 +41,6 @@ public class RegistroNotaTui {
 		peso1 = sc.nextInt();
 		System.out.println("Digite o peso 2");
 		peso2 = sc.nextInt();
-
 		registroNotaBC.registarPesos(1, peso1);
 		registroNotaBC.registarPesos(2, peso2);
 
