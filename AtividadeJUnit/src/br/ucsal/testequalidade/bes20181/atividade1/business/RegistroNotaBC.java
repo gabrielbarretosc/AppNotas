@@ -45,6 +45,7 @@ public class RegistroNotaBC {
 			System.out.println("Peso invalido");
 			throw new PesoInvalidoException();
 		}
+		System.out.println("Peso valido");
 	}
 
 	public void validarNota(Integer nota) throws NotaInvalidaException {
